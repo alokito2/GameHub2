@@ -1,0 +1,83 @@
+textarea {
+  width: 684px;
+  height: 196px;
+  outline: none;
+  resize: none;
+  border: 2px solid #2d2e32;
+  border-radius: 2px;
+  padding: 20px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  position: relative;
+  /* right:65%; */
+}
+
+textarea:disabled {
+  background: #2d2e32;
+}
+
+.main-box {
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  margin: 1em 0;
+  font-size: 0.9rem;
+  color: #2d2e32;
+  color: white;
+  text-transform: uppercase;
+}
+
+.main-h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-right: 100px; */
+  gap: 10px;
+  font-size: 30px;
+}
+
+.main-h1-2{
+  width:50vw;
+}
+
+.btn-change {
+  border-radius: 10px;
+  margin:0 150px 0 100px;
+  padding:0 20px;
+}
+
+button:disabled {
+  opacity: 0.8;
+  cursor: default;
+}
+
+.result {
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  color: white;
+  display:inline;
+
+}
+
+.result span{
+  text-align: center;
+  padding-right:50px;
+  margin:40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+}
+
+@media (max-width: 768px) {
+  .main-box {
+    flex-direction: column;
+  }
+  textarea {
+    width: 100%;
+    padding: 0;
+  }
+}

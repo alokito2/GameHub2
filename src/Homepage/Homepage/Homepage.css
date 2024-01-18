@@ -1,0 +1,735 @@
+/* Google fonts imported */
+@import url("https://fonts.googleapis.com/css2?family=Silkscreen:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Monofett&display=swap");
+:root {
+  --move: 5s linear forwards;
+}
+/* CSS applied to all */
+*::before,
+*::after {
+  content: "";
+  position: absolute;
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem auto;
+  height: 100vh;
+  /* display: grid;
+  place-items: center; */
+  /* overflow-x: hidden; */
+  background-color: #161623;
+  font-family: Arial, Helvetica, sans-serif;
+  background: rgba(0, 0, 0, 0.3) url('gaming.jpg');
+  background-blend-mode: darken;
+  background-size: cover;
+}
+/* Pacman landing page container */
+.container_landing {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 2rem auto;
+  margin: 4px auto;
+  height: 600px;
+  background: rgb(0, 0, 0);
+  display: grid;
+  place-items: center;
+  border: 10px groove rgb(69, 178, 214);
+  outline: 15px groove rgb(252, 14, 252);
+  overflow: hidden;
+  position: relative;
+}
+
+.pacman {
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 2;
+  animation: move1 var(--move), move2 var(--move) 6s;
+}
+
+.pacman::before {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(
+    rgb(247, 114, 5) 10%,
+    transparent 10%,
+    transparent 40%,
+    rgb(255, 123, 0) 40%
+  );
+  animation: mouth 1s linear infinite;
+}
+
+.pacman::after {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(
+    rgb(255, 136, 0) 10%,
+    transparent 10%,
+    transparent 40%,
+    rgb(255, 115, 0) 40%
+  );
+  animation: mouth2 1s linear infinite;
+}
+
+
+/* ghost*/
+.ghost {
+  z-index: 3;
+  width: 125px;
+  height: 125px;
+  position: absolute;
+  border-radius: 50% 50% 0 0;
+  clip-path: polygon(
+    0 100%,
+    20% 80%,
+    35% 100%,
+    50% 80%,
+    65% 100%,
+    80% 80%,
+    100% 100%,
+    100% 0,
+    0 0,
+    0 100%
+  );
+  box-shadow: inset 5px -5px 50px 0 rgba(0, 0, 0, 0.5);
+  animation: move1 var(--move), move2 var(--move) 6s,
+    scared 0.125s linear forwards 6s;
+  left: 200px;
+}
+.ghost::before {
+  z-index: 3;
+  width: 25px;
+  height: 25px;
+  background: white;
+  border-radius: 50%;
+  right: 10px;
+  top: 40px;
+  box-shadow: -40px 0 0 1px white;
+}
+.ghost::after {
+  z-index: 3;
+  width: 8px;
+  height: 8px;
+  background: black;
+  border-radius: 50%;
+  right: 11px;
+  top: 48px;
+  box-shadow: -40px 0 0 1px black;
+  animation: scared2 0.125s linear forwards 6s;
+}
+.about-section {
+  border-radius: 30px;
+  margin-top: 100px;
+  background-color: #000000;
+  border: 10px groove lightblue;
+  outline: 15px groove rgb(248, 79, 1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.about-section h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
+  color: #f16406;
+}
+
+.about-section p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #cccab2;
+}
+.container_landing > div.ghost:nth-of-type(2) {
+  background: red;
+}
+.container_landing > div.ghost:nth-of-type(3) {
+  background: cyan;
+  margin: 0 -130px;
+}
+.container_landing > div.ghost:nth-of-type(4) {
+  background: pink;
+  margin: 0 -260px;
+}
+.container_landing > div.ghost:nth-of-type(5) {
+  background: orange;
+  margin: 0 -390px;
+}
+/* text */
+.text {
+  position: relative;
+  text-align: center;
+}
+.text::before {
+  content: "GameHub";
+  position: relative;
+  color: transparent;
+  font-family: "Monofett", cursive;
+  font-size: 3rem;
+  background: rgb(243, 7, 164);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 1px black;
+  letter-spacing: 3px;
+  animation: change 0.125s linear forwards 5s, hue 1s linear infinite 9s;
+}
+.text::after {
+  width: 0;
+  height: 100px;
+  background: black;
+  top: 0;
+  left: 0;
+  animation: wipe 1s linear forwards 2s, wipe2 1s linear forwards 8s;
+}
+
+/* animations */
+@keyframes mouth {
+  0% {
+    transform: rotatez(90deg);
+  }
+  50% {
+    transform: rotatez(-90deg);
+  }
+  100% {
+    transform: rotatez(90deg);
+  }
+}
+@keyframes mouth2 {
+  0% {
+    transform: rotatez(-90deg);
+  }
+  50% {
+    transform: rotatez(90deg);
+  }
+  100% {
+    transform: rotatez(-90deg);
+  }
+}
+@keyframes scared {
+  100% {
+    background: rgb(153, 184, 240);
+  }
+}
+@keyframes scared2 {
+  100% {
+    width: 50px;
+    height: 25px;
+    background: white;
+    right: 15px;
+    top: 65px;
+    box-shadow: none;
+    border-radius: 0;
+    clip-path: polygon(
+      0 25%,
+      10% 100%,
+      30% 50%,
+      50% 100%,
+      70% 50%,
+      90% 100%,
+      100% 25%,
+      90% 75%,
+      70% 25%,
+      50% 75%,
+      30% 25%,
+      10% 75%,
+      0 25%
+    );
+  }
+}
+@keyframes change {
+  from {
+    content: "GameHub";
+  }
+  to {
+    content: "GameHub";
+    font-family: arial;
+    position: relative;
+    color: transparent;
+    font-family: "Monofett", cursive;
+    font-size: 50px;
+    background: gold;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 1px black;
+    letter-spacing: 3px;
+  }
+}
+/* Search input  */
+.search-input {
+  margin: -5px auto;
+  width: 40%;
+  border: 5px;
+  padding: 5px;
+  margin-bottom: 50px;
+  font-size: 26px;
+  display: flex;
+  justify-content: center;
+  top: 30px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+@keyframes hue {
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+@keyframes wipe {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes wipe2 {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}
+@keyframes move1 {
+  from {
+    transform: rotatey(0) translatex(-1000px);
+  }
+  to {
+    transform: rotatey(0) translatex(1000px);
+  }
+}
+@keyframes move2 {
+  from {
+    transform: rotatey(180deg) translatex(-1000px);
+  }
+  to {
+    transform: rotatey(180deg) translatex(1000px);
+  }
+}
+
+/* Add media query for devices with width less than or equal to 576px */
+/* This will make animation responsive in smaller devices*/
+@media screen and (max-width: 576px ) {
+  .pacman {
+    height: 120px;
+    width: 120px;
+  }
+
+  .ghost {
+    height: 120px;
+    width: 120px;
+    left: -50px;
+  }
+
+  .container_landing > div.ghost:nth-of-type(2) {
+    margin: 0 -100px;
+  }
+
+  .container_landing > div.ghost:nth-of-type(3) {
+    margin: 0 -225px;
+  }
+
+  .container_landing > div.ghost:nth-of-type(4) {
+    margin: 0 -350px;
+  }
+
+  .container_landing > div.ghost:nth-of-type(5) {
+    margin: 0 -475px;
+  }
+}
+
+/* Add media query for devices with width greater than or equal to 576px */
+@media screen and (min-width: 576px) {
+  .pacman {
+    height: 120px;
+    width: 120px;
+  }
+
+  .ghost {
+    height: 120px;
+    width: 120px;
+    left: 50px;
+  }
+
+  .container_landing > div.ghost:nth-of-type(2) {
+    margin: 0 -100px;
+  }
+
+  .container_landing > div.ghost:nth-of-type(3) {
+    margin: 0 -225px;
+  }
+
+  .container_landing > div.ghost:nth-of-type(4) {
+    margin: 0 -350px;
+  }
+
+  .container_landing > div.ghost:nth-of-type(5) {
+    margin: 0 -475px;
+  }
+}
+
+/* Add media query for devices with width greater than or equal to 768px */
+@media screen and (min-width: 768px) {
+  .pacman {
+    height: 120px;
+    width: 120px;
+  }
+
+  .ghost {
+    height: 120px;
+    width: 120px;
+    left: 50px;
+  }
+}
+
+
+/* Add media query for devices with width greater than or equal to 992px */
+@media screen and (min-width: 992px) {
+  .pacman {
+    height: 120px;
+    width: 120px;
+  }
+
+  .ghost {
+    height: 120px;
+    width: 120px;
+    left: 250px;
+  }
+}
+nav{
+  box-sizing: border-box;
+  border: 2px solid rgba(226, 127, 14, 0.493);
+  background-color: #fff;
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  width: 100%;
+  align-items: center;
+}
+
+nav h2{
+  margin-left: 11px;
+  cursor: pointer;
+  color: #000;
+
+}
+
+nav h2 span{
+  font-style: italic;
+  color: rgb(249, 101, 15);
+}
+
+nav ul{
+  flex: 1;
+  text-align: center;
+}
+nav ul li{
+  display: inline-block;
+  margin: 10px 20px;
+  padding: 4px;
+}
+
+nav ul li a{
+  padding: 15px;
+  text-decoration: none;
+  color: #000;
+  transition: 2s;
+
+}
+
+nav ul li a:hover{
+  box-shadow: 0 5px 20px rgb(249, 101, 15) inset, 0 5px 20px rgb(249, 101, 15) inset,0 5px 20px rgb(249, 101, 15) inset,0 5px 20px rgb(249, 101, 15) inset;
+}
+
+nav .btn{
+  color: #000;
+  text-decoration: none;
+  margin-right: 25px;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  padding: 12px;
+  background-color: rgb(249, 101, 15);   /*explore*/
+}
+
+.card:hover.card img{
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  transform: scale(1.4);
+}
+/*  cards */
+.body_card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  width: 100%;
+  background: #ee7505;
+  border-radius: 50px;
+}
+
+.container_card {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  flex-wrap: wrap;
+  z-index: 1;
+}
+
+.container_card .card {
+  position: relative;
+  width: 280px;
+  height: 400px;
+  margin: 30px;
+  box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  transition: 250ms;
+}
+
+.container_card .card:hover {
+  transform: scale(1.025);
+}
+
+.container_card .card .content {
+  padding: 2rem 1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.container_card .card .content h2 {
+  font-size: 3em;
+  color: rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+  font-family: "Press Start 2P", cursive;
+  margin-bottom: 2rem;
+}
+
+.container_card .card .content h3 {
+  font-family: "Press Start 2P", cursive;
+  font-size: 1.4em;
+  color: #fff;
+  z-index: 1;
+  margin-bottom: 1rem;
+  line-height: 2rem;
+}
+
+.container_card .card .content p {
+  font-size: 1em;
+  color: #fff;
+  font-weight: 300;
+}
+
+.container_card .card .content a {
+  position: relative;
+  display: inline-block;
+  padding: 0.75rem 1rem;
+  margin-top: 15px;
+  background: #fff;
+  color: #810a8b;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  font-family: "Press Start 2P", cursive;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.container_card .card .content a:hover {
+  background-color: gold;
+  color: #000;
+}
+
+@font-face {
+  font-family: retrogamer;
+  src: url("https://db.onlinewebfonts.com/t/4c19fc875e7ba1e6831129de3ab5ac0b.woff2")
+    format("woff2");
+}
+
+/* Heading in Homepage GameHub!! */
+
+.header_homepage {
+  width: 80%;
+  border: 5px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  top: 30px;
+  color: white;
+  font-family: "Silkscreen", cursive;
+  font-size: 3.5rem;
+  text-align: center;
+  margin: auto;
+  margin-top: 55px;
+  margin-bottom: 35px;
+}
+.header_homepage h1 {
+  font-size: 3.5rem;
+  width: 100%;
+}
+.music-btn {
+  text-align: center;
+  font-size: 1.1em;
+  color: #551a88;
+  margin-top: 2rem;
+
+  font-family: "Press Start 2P", cursive;
+}
+/* Custom Scrollbar*/
+
+/* width */
+::-webkit-scrollbar{
+    width: 8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track{
+    background: #585756;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb{
+    background: #ffffff;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover{
+    background: #adabab;
+}
+
+/* Copyright in Footer */
+.copyright{
+  margin: auto;
+  width: 80%;
+  border: 5px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  top: 30px;
+  text-align: center;
+}
+
+.copyright h3{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* CSS for Flip card  */
+
+.flip-card {
+  max-width: 1200px;
+  background-color: transparent;
+  width: 242px;
+  height: 200px;
+  border: 1px solid #cf0f6f;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+    height: 100%; 
+  -webkit-backface-visibility: hidden; 
+  backface-visibility: hidden;
+}
+
+/* Style the front side  */
+.flip-card-front {
+  background-color:  rgba(255, 255, 255, 0.1);
+  width:241px;
+  color: black;
+  padding:13px;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color:  rgba(255, 255, 255, 0.1);
+  color: white;
+  transform: rotateY(180deg);
+}
+/* Styling steps */
+.step {
+  
+  font-size:12px;
+  margin:5px;
+  padding:5px;
+}
+/* Styling heading */
+.rule_heading{
+ 
+  font-size:20px;
+  margin-top:10px;
+  margin-bottom:20px;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgba(0, 0, 0, 0.3) url('gaming.jpg');
+    background-blend-mode: darken;
+    background-size: cover;
+}
+nav{
+    box-sizing: border-box;
+    border: 1px solid rgba(240, 139, 6, 0.493);
+    background-color: #fff;
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 0%;
+    align-items: center;
+}
+
+nav h2{
+    margin-left: 11px;
+    cursor: pointer;
+    color: #000;
+
+}
+
+nav h2 span{
+    font-style: italic;
+    color: rgb(249, 101, 15);
+}
+
+
+
+
+
+
+.card:hover.card img{
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    transform: scale(1.4);
+}
