@@ -59,7 +59,7 @@ body {
     rgb(247, 114, 5) 10%,
     transparent 10%,
     transparent 40%,
-    rgb(255, 123, 0) 40%
+    rgb(247, 114, 5) 40%
   );
   animation: mouth 1s linear infinite;
 }
@@ -69,10 +69,10 @@ body {
   height: 100%;
   border-radius: 50%;
   background: conic-gradient(
-    rgb(255, 136, 0) 10%,
+    rgb(247, 114, 5) 10%,
     transparent 10%,
     transparent 40%,
-    rgb(255, 115, 0) 40%
+    rgb(247, 114, 5) 40%
   );
   animation: mouth2 1s linear infinite;
 }
