@@ -5,7 +5,7 @@ import('node-fetch').then((fetch) => {
 });
 const fs = require('fs');
 const owner = 'ssitvit';
-const repo = 'Games-and-Go';
+const repo = 'Gamehub';
 fetch(`https://api.github.com/repos/${owner}/${repo}/contributors`)
 .then(response => response.json())
 .then(contributors => {

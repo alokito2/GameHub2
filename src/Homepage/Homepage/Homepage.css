@@ -402,7 +402,7 @@ body {
 }
 nav{
   box-sizing: border-box;
-  border: 2px solid rgba(226, 127, 14, 0.493);
+  border: 2px solid rgba(197, 120, 4, 0.493);
   background-color: #fff;
   position: fixed;
   display: flex;
@@ -446,16 +446,7 @@ nav ul li a:hover{
   box-shadow: 0 5px 20px rgb(249, 101, 15) inset, 0 5px 20px rgb(249, 101, 15) inset,0 5px 20px rgb(249, 101, 15) inset,0 5px 20px rgb(249, 101, 15) inset;
 }
 
-nav .btn{
-  color: #000;
-  text-decoration: none;
-  margin-right: 25px;
-  padding: 10px;
-  box-sizing: border-box;
-  border-radius: 20px;
-  padding: 12px;
-  background-color: rgb(249, 101, 15);   /*explore*/
-}
+
 
 .card:hover.card img{
   cursor: pointer;
@@ -469,7 +460,7 @@ nav .btn{
   align-items: center;
   min-height: 50vh;
   width: 100%;
-  background: #ee7505;
+  background: #ee4705;
   border-radius: 50px;
 }
 
@@ -486,12 +477,12 @@ nav .btn{
 .container_card .card {
   position: relative;
   width: 280px;
-  height: 400px;
+  height: 380px;
   margin: 30px;
   box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
   border-radius: 15px;
   background: rgba(255, 255, 255, 0.1);
-  overflow: hidden;
+  overflow: visible;
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-left: 1px solid rgba(255, 255, 255, 0.5);
   transition: 250ms;
@@ -512,7 +503,7 @@ nav .btn{
 
 .container_card .card .content h2 {
   font-size: 3em;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgb(255, 255, 255);
   pointer-events: none;
   font-family: "Press Start 2P", cursive;
   margin-bottom: 2rem;
@@ -521,7 +512,7 @@ nav .btn{
 .container_card .card .content h3 {
   font-family: "Press Start 2P", cursive;
   font-size: 1.4em;
-  color: #fff;
+  color: #30d5eb;
   z-index: 1;
   margin-bottom: 1rem;
   line-height: 2rem;
@@ -529,7 +520,7 @@ nav .btn{
 
 .container_card .card .content p {
   font-size: 1em;
-  color: #fff;
+  color: #4815a7;
   font-weight: 300;
 }
 
